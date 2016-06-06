@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>Spring Framework</title>
+
+<th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+	<div class="container">
+		<th:block th:include="fragments/header :: header"></th:block>
+		<h2>Order Details</h2>
+		<div>
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Order Id:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${order.id}">Order Id</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Description:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${order.description}">description</p>
+					</div>
+				</div>	
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Date:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${order.date}">date</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Process:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static" th:text="${order.state}">state</p>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

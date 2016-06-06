@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Spring Framework</title>
+
+<th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+	<div class="container">
+		<th:block th:include="fragments/header :: header"></th:block>
+		<div th:if="${not #lists.isEmpty(internets)}">
+			<h2>Internet List</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Description</th>
+					<th>velocity</th>
+					<th>View</th>
+					<th>Edit</th>
+				</tr>
+				<tr th:each="internet : ${internets}">
+					<td th:text="${internet.id}"><a href="/internet/${internet.id}">Id</a></td>
+					<td th:text="${internet.description}">description</td>
+					<td th:text="${internet.velocity}">velocity</td>
+					<td><a th:href="${'/internet/' + internet.id}">View</a></td>
+					<td><a th:href="${'/internet/edit/' + internet.id}">Edit</a></td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+</body>
+</html>

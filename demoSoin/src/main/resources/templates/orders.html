@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Spring Framework - Demo</title>
+
+<th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+	<div class="container">
+		<th:block th:include="fragments/header :: header"></th:block>
+		<div th:if="${not #lists.isEmpty(orders)}">
+			<h2>Order List</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Description</th>
+					<th>Date</th>
+					<th>Process</th>
+					<th>View</th>
+				</tr>
+				<tr th:each="order : ${orders}">
+					<td th:text="${order.id}"><a href="/order/${order.id}">Id</a></td>
+					<td th:text="${order.description}">description</td>
+					<td th:text="${order.date}">date</td>
+					<td th:text="${order.state}">state</td>
+					<td><a th:href="${ '/order/' + order.id}">View</a></td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+</body>
+</html>
